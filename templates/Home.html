@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+    {% for last in top %}
+      <h1 class="display-4 font-italic">{{last.Heading}}</h1>
+      <p class="lead my-3">{{last.Brief}}</p>
+      <p class="lead mb-0"><a href="blog" class="text-white font-weight-bold">Continue reading...</a></p>
+    {% endfor %}
+    </div>
+  </div>
+
+  <div class="row mb-2">
+  {% for iter in blogs %}
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Tag</strong>
+          <h3 class="mb-0">{{iter.Heading}}</h3>
+          <div class="mb-1 text-muted">{{iter.Date}}</div>
+          <p class="card-text mb-auto">{{iter.Brief}}</p>
+          <a href="blog" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+      </h3>
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">Travel Enthusiast</h2>
+        <p class="blog-post-meta">July 31, 2020 by <a href="#">Vaishakh</a></p>
+
+        <p>As a travel enthusiast, you must have heard about social travel or read about it somewhere. And to know more about traveling social you are at the right article. Social travel is more than just visiting a place & spending time out of the monotonous routine. With social travel, one can connect with like-minded travelers around the world with whom you can trip together to discover new places of common interest and make unforgettable memories. It is a perfect mantra for people who usually travel solo & may need a travel partner along with them to share the adventure & calmness of traveling and also guide a newbie solo traveler to get them around at a new place OR vice versa.</p>
+        <hr>
+        <h3>Inspiring Travel Quotes and Quotes about Adventures</h3>
+        <p>“ With the right mindset and spirit, only the sky is the limit”</p>
+        <p>“Happiness is letting go of what you think your life is supposed to look like and celebrate it for everything that it is.” -Mandy Hale</p>
+        <h3>Quotes About Life and Adventures</h3>
+        <ul>
+          <li>Adventure begins where plans end.</li>
+          <li>Don’t ask for security, ask for adventure.</li>
+          <li>Playing it safe is a gamble too.</li>
+          <li>I have an insane calling to be where I am not.</li>
+          <li>Adventure isn’t hanging off a rope on the side of a mountain or living among lions. Adventure is an attitude to experience everyday things.</li>
+          <li>Life begins at the end of your comfort zone.</li>
+        </ul>
+      </div><!-- /.blog-post -->
+    </div><!-- /.blog-main -->
+
+    <aside class="col-md-4 blog-sidebar">
+    {% for data in name %}
+      <div class="p-4 mb-3 bg-light rounded">
+        <h4 class="font-italic">About the author</h4><hr>
+        <h3>{{data.Name}}</h3>
+        <p class="mb-0">{{data.About}}</p>
+      </div>
+
+      <div class="p-4">
+        <ol class="list-unstyled">
+          <div class="row">
+            <li><h5>Contact me on</h5></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href={{data.Whatsapp}} target="_blank"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href={{data.Insta}} target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href={{data.Linkedin}} target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a></li>
+          </div>
+        </ol>
+      </div>
+    {% endfor %}
+    </aside><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+{% endblock  %}
